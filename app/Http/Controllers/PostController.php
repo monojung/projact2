@@ -10,7 +10,7 @@ class PostController extends Controller
     public function index()
     {
         $categories = Post::all();
-        return $categories;
+        return view('post.index');
     }
 
     public function show($id)
