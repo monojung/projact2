@@ -9,6 +9,11 @@
 </head>
 <body>
     <h1>สิ่งที่ต้องทำ</h1>
+    @if(auth()->check())
+    <p>สวัสดี, {{auth()->user()->name}}, <a href="/logout">ออกจากระบบ</a></p>
+    @else
+    <p>สวัสดี, บุคคลทั่วไป</p>
+    @endif
     @yield("content")
     <script
   src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -17,3 +22,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
 </html>
+
