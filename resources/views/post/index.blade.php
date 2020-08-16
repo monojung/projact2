@@ -11,38 +11,22 @@
             <span class="pull-right"><a href="/create" class="btn btn-xs btn-success"><i class="fa fa-plus"></i> เพิ่มรายการ</a></span>
         </h4>
     </div>
+    {{$categories}}
     <table class="table table-striped table-hover">
         <thead>
+            @foreach($categories as $item)
             <tr>
-                <th>#</th>
-                <th>ชื่อรายการ</th>
-                <th>หมวดหมู่</th>
-                <th>สถานะ</th>
-                <th>จัดการ</th>
+                <td>{{$item->id}}</td>
+                <td>{{$item->detail}}</td>
+                <td>{{$item->category->name}}</td>
+                <td>@if($item->complete == 0) ยังไม่ได้ทำ @else ทำเสร็จแล้ว @endif</td>
+                <td>
+                    <a href="#" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> edit</a>
+                    <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-times"></i> delete</a>
+                </td>
             </tr>
+            @endforeach
         </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>ซื้อสินค้าที่ Super Market</td>
-                <td>Shopping</td>
-                <td>Incomplete</td>
-                <td>
-                    <a href="#" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> edit</a>
-                    <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-times"></i> delete</a>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>พาหมาไปวิ่งเล่น</td>
-                <td>Activity</td>
-                <td>Completed</td>
-                <td>
-                    <a href="#" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> edit</a>
-                    <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-times"></i> delete</a>
-                </td>
-            </tr>
-        </tbody>
     </table>
 </div>
 <ul class="pagination">
